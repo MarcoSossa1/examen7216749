@@ -57,6 +57,7 @@ namespace Ventas.Endpoints
             try
             {
                 var detalle = await req.ReadFromJsonAsync<Detalle>() ?? throw new Exception("Debe ingresar un detalle con todos sus datos");
+                detalle.SubTotal = detalle.Cantidad * detalle.Precio;
                 bool seGuardo = await _detalleLogic.InsertarDetalle(detalle);
 
                 if (seGuardo)

@@ -18,5 +18,7 @@ namespace Shared
         [ForeignKey("Cliente")]
         public int idCliente{ get; set; }
         public Cliente? Cliente { get; set; }
+
+        public virtual ICollection<Detalle>? Detalles { get; set; } = new List<Detalle>();
     }
 }
